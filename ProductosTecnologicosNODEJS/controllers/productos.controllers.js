@@ -25,6 +25,21 @@ exports.getProductoporID = async (req, res) => {
     }
 };
 
+
+//Carlos
+exports.addProducto = async (req, res) => {
+    try {
+        console.log(req.body);
+        const nuevoProducto = await Producto.create(req.body);
+        res.status(201).json(nuevoProducto);
+    } catch (error) {
+        console.error('Error al crear el producto:', error);
+        res.status(500).json({ message: 'Error al crear el producto', error});
+    }
+};
+
+
+
 //Vanne
 exports.deleteProducto = async(req, res) => {  
     const { nombre }= req.params;
@@ -41,3 +56,4 @@ exports.deleteProducto = async(req, res) => {
     res.status(500).json({ error: "Error al eliminar los productos."});
 }
 };
+
