@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const {getAllProductos, getProductoporID, deleteProducto} = require('../controllers/productos.controllers')
+const {getAllProductos, getProductoporID, deleteProducto, addProducto} = require('../controllers/productos.controllers')
 
 //definir las funciones
 
+//creacion de  productos Carlos
+router.post('/producto', addProducto);
 //listar de producto Karla
 router.get('/producto', getAllProductos);
 //listar por id especifico de producto Karla
