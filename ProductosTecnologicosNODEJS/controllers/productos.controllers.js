@@ -1,6 +1,7 @@
 const Productos = require('../models/productos.model')
 
 //exportación de los métodos
+
 //Karla
 exports.getAllProductos = async (req, res)=> {
     const productos = await Producto.find();
@@ -38,7 +39,21 @@ exports.addProducto = async (req, res) => {
     }
 };
 
+//María José
+exports.updateProducto = async (req, res) => {
+    const idProducto = req.params.id;
 
+    try {
+        const productoActualizado = await Producto.findByIdAndUpdate(idProducto, req.body, { new: true, runValidators: true });
+        if (!productoActualizado) {
+            return res.status(404).send({ mensaje: 'Producto no encontrado' });
+        }
+        res.status(200).json(productoActualizado);
+    } catch (error) {
+        console.error('Error al actualizar el producto:', error);
+        res.status(500).json({ mensaje: 'Error al actualizar el producto', error });
+    }
+};
 
 //Vanne
 exports.deleteProducto = async(req, res) => {  

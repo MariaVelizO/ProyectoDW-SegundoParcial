@@ -10,6 +10,8 @@ router.post('/producto', addProducto);
 router.get('/producto', getAllProductos);
 //listar por id especifico de producto Karla
 router.get('/producto/:id', getProductoporID);
+//Actualizar un usuario María José 
+router.put('/updateProducto/:id', updateProducto);
 //Borrar producto por nombre Vanne
 router.delete('/deleteProducto/:nombre', deleteProducto);
 
