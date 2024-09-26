@@ -25,3 +25,19 @@ exports.getProductoporID = async (req, res) => {
     }
 };
 
+//Vanne
+exports.deleteProducto = async(req, res) => {  
+    const { nombre }= req.params;
+    try {
+    const producto = await Producto.deleteMany({nombre});
+
+    if(!producto){
+        //fallido
+        return res.status(404).send({ mensaje: 'Producto no encontrado'});
+    }
+    res.status(200).json(producto)
+}catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al eliminar los productos."});
+}
+};
