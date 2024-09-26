@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {getAllProductos, getProductoporID, deleteProducto, addProducto} = require('../controllers/productos.controllers')
+const {getAllProductos, getProductoporID, deleteProducto, addProducto, updateProducto} = require('../controllers/productos.controllers')
 
 //definir las funciones
 
